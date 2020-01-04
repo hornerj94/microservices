@@ -1,0 +1,12 @@
+[submodule "api-gateway"]
+	path = api-gateway
+	url = https://github.com/hornerj94/api-gateway
+[submodule "authentication-service"]
+	path = authentication-service
+	url = https://github.com/hornerj94/authentication-service
+[submodule "dummy-service"]
+	path = dummy-service
+	url = https://github.com/hornerj94/dummy-service
+[submodule "eureka-server"]
+	path = eureka-server
+	url = https://github.com/hornerj94/eureka-server

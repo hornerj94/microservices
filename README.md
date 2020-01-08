@@ -49,7 +49,9 @@ Außerdem enthält das Projekt eine Controller Klasse welche Anfragen abfängt u
 
 ## Führen Sie die Anwendung aus
 **Vorbedingungen**
-Installiere das Build Tool Apache Maven auf deinem Rechner. 
+Bevor sie die Anwendung starten können müssen sie sich zuerst das Projekt klonen. Um das Projekt zusammen mit den Submodulen zu klonen kann folgender Befehl genutzt werden...
+    
+    git clone --recurse-submodules https://github.com/hornerj94/microservices.git
 
 Um die Anwendung laufen zu lassen müssen die einzelnen Projekte in einer bestimmten Reihenfolge gestartet werden. Die optimale Reihenfolge ist folgende:
 

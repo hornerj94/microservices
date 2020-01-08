@@ -1,6 +1,6 @@
 
 # microservices
-## Worum geht es in diesem Projekt??
+## Worum geht es in diesem Projekt?
 Das Projekt setzt eine einfache Microservices-Architektur um. Enthalten sind ein API-Gateway, ein Service für die Authentifizierung, ein Service-Discovery-Server und ein Service welcher zwei einfache HTML-Dokumente verwaltet.
 
 ## Details

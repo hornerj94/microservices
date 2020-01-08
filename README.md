@@ -4,7 +4,7 @@
 Das Projekt setzt eine einfache Microservices-Architektur um. Enthalten sind ein API-Gateway, ein Service für die Authentifizierung, ein Service-Discovery-Server und ein Service welcher zwei einfache HTML-Dokumente verwaltet.
 
 ## Details
-Das Projekt enthält mehrere git submodule von welchen jedes submodul ein eigenständiges git Projekt darstellt. Die Submodule sind:
+Das Projekt enthält mehrere git submodule von welchen jedes ein eigenständiges git Projekt darstellt. Die Submodule sind:
 
  - api-gateway
  - authentication-service
@@ -19,12 +19,12 @@ Das Spring-Boot-Framework automatisiert verschiedene Abläufe wie das einrichten
 Das Projekt nutzt einen Serverseitigen-Discovery-Mechanismus, welcher über  Eureka umgesetzt wird. Eureka ist der Service-Discovery Server und Client, von Netflix, welcher über das Spring Cloud Framework bereitsgestellt wird. 
 
 ## eureka-server
-Der Eureka Server wird im Projekt eureka-server umgesetzt. Die Services registrieren sich bei diesem als Eureka-Clients und schicken diesem in regelmäßigen Intervallen Aktualisierungen ihres Standorts. Wenn ein Service sich eine bestimmte Zeit lang nicht mehr beim Server meldet wird dieser abgemeldet und aus der Liste der verfügbaren Services entfernt. Da die Services sich selbständig beim Server registrieren können diese auf einfache Art und Weiße gefunden werden.
+Der Eureka-Server wird im Projekt eureka-server umgesetzt. Die Services registrieren sich bei diesem als Eureka-Clients und schicken diesem in regelmäßigen Intervallen Aktualisierungen ihres Standorts. Wenn ein Service sich eine bestimmte Zeit lang nicht mehr beim Server meldet wird dieser abgemeldet und aus der Liste der verfügbaren Services entfernt. Da die Services sich selbständig beim Server registrieren können diese auf einfache Art und Weiße gefunden werden.
 
 ## api-gateway
 Der API-Gateway wird im Projekt api-gateway umgesetzt. Der Client kommuziert ausschließlich mit dem API-Gateway. Je nachdem welchen Pfad der Client anfragt, überprüft der API-Gateway ob die erforderlichen Berechtigungen vorliegen, routet die Anfrage an einen der Services weiter und das resultierende Ergebnis wieder zurück zum Client. Wenn Services untereinander kommunizieren erfolgt diese ebenfalls über den API-Gateway. Der API-Gateway erfragt dafür den Standort der Services beim Eureka-Server.
 
-Das routing wird mit zuul umgesetzt. zuul ist der Gateway Service, von Netflix, welcher neben routing weitere Funktionalitäten anbietet, zum Beispiel  Ausfallsicherheit, Lastverteilung oder Sicherheitsaspekte. zuul ist ebenfalls im Spring-Cloud-Framework enthalten.
+Das Routing wird mit zuul umgesetzt. zuul ist der Gateway Service, von Netflix, welcher neben routing weitere Funktionalitäten anbietet, zum Beispiel  Ausfallsicherheit, Lastverteilung oder Sicherheitsaspekte. zuul ist ebenfalls im Spring-Cloud-Framework enthalten.
 
 Des Weiteren nutzt das Projekt Thymeleaf, JWT und das Spring-Security-Framwork zum überprüfen der Benutzer Berechtigungen und entsprechender Weiterleitung dieser.
 
@@ -32,9 +32,9 @@ Des Weiteren nutzt das Projekt Thymeleaf, JWT und das Spring-Security-Framwork z
 
 Wenn ein Benutzer auf eine Ressource zugreifen will, auf die nur Benutzer mit einer besonderen Rolle zugreifen dürfen, erkennt der API-Gateway dies und sendet dem Benutzer eine Aufforderung sich zu authentisieren. Dies geschieht über eine Login Seite auf welcher der Benutzer seinen Benutzernamen und sein Passwort eingibt. Die Anmeldedaten werden an den API-Gateway gesendet welcher diese wiederum an den Authentifizierungsservice weiterleitet. 
 
-Der Authentifizierungsservice überprüft ob die vom Benutzer eingegebenen Anmeldedaten korrekt sind. Wenn das der Fall ist erstellt der Service einen Token, welcher den Benutzer repräsentiert. Der Token wird dem Benutzer über den API-Gateway zugesendet.
+Der Authentifizierungsservice überprüft ob die vom Benutzer eingegebenen Anmeldedaten korrekt sind. Wenn dass der Fall ist erstellt der Service einen Token, welcher den Benutzer repräsentiert. Der Token wird dem Benutzer über den API-Gateway zugesendet.
 
-Die letztendliche Autorisierung erfolgt über den Token welchen der Benutzer zusammen mit der jeweilig angeforderten Ressource zum API-Gateway schickt. Der API-Gateway entschlüsselt den Token mit dem dazugehörigen Schlüssel und validiert somit das der Token vom Authentifizierungsservice ausgestellt wurde. Als letztes wird überprüft ob der Benutzer die erforderlichen Rechte besitzt um auf die Ressource zuzugreifen und diese wenn die Rechte vorliegen zurückgegeben.
+Die letztendliche Autorisierung erfolgt über den Token welchen der Benutzer zusammen mit der angeforderten Ressource zum API-Gateway schickt. Der API-Gateway entschlüsselt den Token mit dem dazugehörigen Schlüssel und validiert somit das der Token vom Authentifizierungsservice ausgestellt wurde. Als letztes wird überprüft ob der Benutzer die erforderlichen Rechte besitzt um auf die Ressource zuzugreifen und diese wenn die Rechte vorliegen zurückgegeben.
 
 ## authentication-service
 Der Authentifizierungsservice wird im Projekt authentication-service umgesetzt. Zur Durchführung der Authentizierung nutzt das Projekt Thymeleaf,

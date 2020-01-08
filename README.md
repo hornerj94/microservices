@@ -43,7 +43,7 @@ JWT und das Spring-Security-Framwork.
 Der authentication-service überprüft ob die vom Benutzer eingegebenen Anmeldedaten korrekt sind. Wenn das der Fall ist erstellt der authentication-service einen Token und signiert diesen mit einer HMAC mit SHA256 und einem entsprechenden Schlüssel. Der Token enthält die Anmeldeinformation des Benutzers und seine Rechte. Der Token wird dem Benutzer über den API-Gateway zugesendet.
 
 ## dummy-service
-Der Service welcher die zwei HTML-Dokumente verwaltet wird im Projekt dummy-service umgesetzt. Der dummy-service ist eine einfache Anwendung welche die erwähnten HTML-Dokumente verwaltet, die securedPage.html und die index.html. Beide Dokumente enthalten einen Link zur jeweils anderen Seite.
+Der Service welcher die zwei HTML-Dokumente verwaltet wird im Projekt dummy-service umgesetzt. Der dummy-service ist eine einfache Anwendung welche die securedPage.html und die index.html verwaltet. Beide Dokumente enthalten einen Link zur jeweils anderen Seite.
 
 Außerdem enthält das Projekt eine Controller Klasse welche Anfragen abfängt und einem HTML-Dokument zuordnet. Diese Zuordnung wird ebenfalls automatisiert von Spring Boot durchgeführt.
 
